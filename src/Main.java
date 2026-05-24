@@ -32,8 +32,8 @@ public class Main {
         }
         double totalTime = (hours * 60) + minutes + (seconds / 60.0);
 
-        double pace = totalTime / distance;
-        double speed = distance / (totalTime / 60);
+        double pace = PaceCalculator.calculatePace(totalTime, distance);
+        double speed = PaceCalculator.calculateSpeed(totalTime, distance);
 
         int paceMinutes = (int) pace;
         int paceSeconds = (int) ((pace - paceMinutes) * 60);
