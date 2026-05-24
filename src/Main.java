@@ -11,11 +11,19 @@ public class Main {
         System.out.print("Introduce la distancia en km: ");
         double distance = scanner.nextDouble();
 
-        System.out.print("Introduce el tiempo en minutos: ");
-        double time = scanner.nextDouble();
+        System.out.print("Horas: ");
+        int hours = scanner.nextInt();
 
-        double pace = time / distance;
-        double speed = distance / (time / 60);
+        System.out.print("Minutos: ");
+        int minutes = scanner.nextInt();
+
+        System.out.print("Segundos: ");
+        int seconds = scanner.nextInt();
+
+        double totalTime = (hours * 60) + minutes + (seconds / 60.0);
+
+        double pace = totalTime / distance;
+        double speed = distance / (totalTime / 60);
 
         int paceMinutes = (int) pace;
         int paceSeconds = (int) ((pace - paceMinutes) * 60);
