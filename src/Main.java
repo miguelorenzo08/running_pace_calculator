@@ -9,17 +9,27 @@ public class Main {
         System.out.println("=== RUNNING PACE CALCULATOR ===");
 
         System.out.print("Introduce la distancia en km: ");
-        double distance = scanner.nextDouble();
-
+        String inputDistance = scanner.next().replace(",", ".");
+        double distance = Double.parseDouble(inputDistance);
+        if (distance <= 0) {
+            System.out.println("La distancia debe ser mayor que 0.");
+            return;
+        }
         System.out.print("Horas: ");
         int hours = scanner.nextInt();
 
         System.out.print("Minutos: ");
         int minutes = scanner.nextInt();
-
+        if (minutes < 0 || minutes > 59) {
+            System.out.println("Los minutos deben estar entre 0 y 59.");
+            return;
+        }
         System.out.print("Segundos: ");
         int seconds = scanner.nextInt();
-
+        if (seconds < 0 || seconds > 59) {
+            System.out.println("Los segundos deben estar entre 0 y 59.");
+            return;
+        }
         double totalTime = (hours * 60) + minutes + (seconds / 60.0);
 
         double pace = totalTime / distance;
